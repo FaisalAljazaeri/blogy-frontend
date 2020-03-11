@@ -1,0 +1,16 @@
+API
+    /api/articles
+    /api/users
+    /api/books
+    ...
+    ...
+
+Components
+    App State=[Articles]
+    Articles (List Container)
+        Article (List Item)
+
+State
+    Articles 
+
+Props
