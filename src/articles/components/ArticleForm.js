@@ -12,16 +12,20 @@ export default class ArticleForm extends Component {
         };
     }
 
+    // Handle change for all form inputs and set the state.
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
         });
     };
 
+    // Make new object for newArticle with the submitted form data.
     submitHandler = e => {
+        // Prevent page from reloading on form submission
         e.preventDefault();
         const { title, content, author, published } = this.state;
 
+        // Create new article with the data from user input.
         const newArticle = {
             title,
             content,
