@@ -12,3 +12,8 @@ export const getAllArticles = () => {
 export const deleteArticleById = id => {
     return axios.delete(`${apiURL}/articles/${id}`);
 };
+
+// Create new Article
+export const addArticle = article => {
+    return axios.post(`${apiURL}/articles`, { article });
+};

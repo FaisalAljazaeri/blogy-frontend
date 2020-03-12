@@ -33,7 +33,8 @@ export default class ArticleForm extends Component {
             published: JSON.parse(published)
         };
 
-        console.log(newArticle);
+        // Pass new article data to parent so it can be added
+        this.props.addArticle(newArticle);
     };
 
     render() {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Article from "./Article";
-import { getAllArticles, deleteArticleById } from "../api";
+import ArticleForm from "./ArticleForm";
+import { getAllArticles, deleteArticleById, addArticle } from "../api";
 
 export default class Articles extends Component {
     componentDidMount() {
@@ -20,6 +21,16 @@ export default class Articles extends Component {
                     article => article._id !== id
                 );
                 this.props.setArticles(newArticlesList);
+            })
+            .catch(err => console.log(err));
+    };
+
+    addArticle = article => {
+        addArticle(article)
+            .then(res => {
+                const newArticles = [...this.props.articles, res.data.article];
+
+                this.props.setArticles(newArticles);
             })
             .catch(err => console.log(err));
     };
@@ -46,6 +57,8 @@ export default class Articles extends Component {
 
         return (
             <>
+                <h1>Add New Article</h1>
+                <ArticleForm addArticle={this.addArticle} />
                 <h1>Articles List</h1>
                 {allArticles}
             </>
