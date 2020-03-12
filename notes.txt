@@ -10,6 +10,7 @@ Components
     Articles (List Container) => Make API call to /api/articles
                               => setState on the APP after API call
         Article (List Item)
+            Delete Link/Button
 
 State
     Articles 

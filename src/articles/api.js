@@ -7,3 +7,8 @@ import axios from "axios";
 export const getAllArticles = () => {
     return axios.get(`${apiURL}/articles`);
 };
+
+// Delete article by id
+export const deleteArticleById = id => {
+    return axios.delete(`${apiURL}/articles/${id}`);
+};
