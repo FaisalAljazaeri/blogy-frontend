@@ -17,3 +17,8 @@ export const deleteArticleById = id => {
 export const addArticle = article => {
     return axios.post(`${apiURL}/articles`, { article });
 };
+
+// Update existing Article
+export const updateArticle = (article, id) => {
+    return axios.patch(`${apiURL}/articles/${id}`, { article });
+};

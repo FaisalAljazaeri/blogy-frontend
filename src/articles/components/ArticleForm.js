@@ -33,9 +33,37 @@ export default class ArticleForm extends Component {
             published: JSON.parse(published)
         };
 
-        // Pass new article data to parent so it can be added
-        this.props.addArticle(newArticle);
+        // Check if updating an existing article by id or create new article
+        // and call the required method.
+        if (this.props.id) {
+            // Pass updated article data to parent so it can be updated
+            this.props.updateArticle(newArticle, this.props.id);
+        } else {
+            // Pass new article data to parent so it can be added
+            this.props.addArticle(newArticle);
+        }
     };
+
+    // If the form is updating existing article it will recive its data
+    // and should initlaize the state of the form with it
+    initializeFormData = () => {
+        const { title, content, author, published } = this.props;
+
+        this.setState({
+            title,
+            content,
+            author,
+            published
+        });
+    };
+
+    componentDidMount() {
+        // If an id is passed it means the form is updating an existing
+        // article and should initlaize its data.
+        if (this.props.id) {
+            this.initializeFormData();
+        }
+    }
 
     render() {
         return (
